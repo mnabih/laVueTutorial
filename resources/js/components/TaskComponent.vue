@@ -2,7 +2,7 @@
     
             <div class="col-md-8 mt-4">
                 <div class="card">
-                    <div class="card-header">Task Component</div>
+                    <div class="card-header">Task Form</div>
 
                     <div class="card-body">
                         <form action="./api/task" method="POST" @submit.prevent="addTask">
@@ -31,8 +31,12 @@
         },
         methods:{
             addTask(){
-                axios.post('./api/task',{title:this.title});
-                alert('addTask');
+                if(this.title.trim().length > 0){
+                    axios.post('./api/task',{title:this.title});
+                    Event.$emit('refresh',{title:this.title});
+                    this.title = '';
+                }
+                
             }
         }
     }

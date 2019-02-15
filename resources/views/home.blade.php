@@ -18,7 +18,8 @@
                 </div>
             </div>
         </div>
-            <task></task>
+            <task-list></task-list>
+            <task-form></task-form>
 
     </div>
 </div>
